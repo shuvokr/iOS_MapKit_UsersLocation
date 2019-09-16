@@ -17,8 +17,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        trackUsersLocation()
     }
 
-
+    func trackUsersLocation() {
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.distanceFilter = kCLDistanceFilterNone
+        self.locationManager.startUpdatingLocation()
+        
+        self.mapView.showsUserLocation = true
+    }
 }
 
